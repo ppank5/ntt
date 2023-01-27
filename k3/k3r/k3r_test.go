@@ -53,8 +53,7 @@ func TestEvents(t *testing.T) {
 		{
 			input: "test3.control",
 			events: []string{
-				`StartEvent test3.control`,
-				`StopEvent test3.control pass`, // no error message when control does not exist
+				`ErrorEvent error (no such control)`,
 			}},
 		{
 			input: "test3.X",
@@ -65,11 +64,12 @@ func TestEvents(t *testing.T) {
 			input: "X.X",
 			events: []string{
 				"ErrorEvent error (no such module)",
+				"ErrorEvent error (no such module)",
 			}},
 		{
 			input: "test3.test3",
 			events: []string{
-				"ErrorEvent error (exit status 2)",
+				"ErrorEvent error (no such test case)",
 			}},
 		{
 			input: "asd",
